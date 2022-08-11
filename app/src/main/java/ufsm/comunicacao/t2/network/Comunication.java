@@ -32,7 +32,7 @@ public class Comunication extends StartLayer{
 		this.addLayer(new LimitLayer());
 		this.addLayer(new FlowControlLayer());
 		this.addLayer(new ErrorControlLayer());
-		this.addLayer(new LossLayer(0.08f));
+		this.addLayer(new LossLayer(0.0f));
 		this.addLayer(layer);
 	}
 
@@ -66,7 +66,6 @@ public class Comunication extends StartLayer{
 		if(str.compareTo("PONG")==0 && onFinishFeedBack!=null) {
 			timeFeedBack= System.currentTimeMillis()-timeFeedBack;
 			onFinishFeedBack.accept(Integer.valueOf((int)timeFeedBack));
-			onFinishFeedBack = null;
 			Log.i("PING","Recebi PONG");
 		}else if(str.compareTo("PING")==0) {
 			sendText("PONG");

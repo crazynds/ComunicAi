@@ -90,7 +90,7 @@ public class RepeatARQSendChannel {
 		switch(packageType) {
 			case -1: // Recive an ANK
 				Variable.sucessFrames++;
-				System.out.println("Recived ANK");
+				System.out.println("Recived ANK "+packageNumber);
 				confirmacoesFila[packageNumber] = true;
 				if(fila[packageNumber]!=null && fila[packageNumber].getValue().getValue()!=null) {
 					//Confirm transaction
@@ -98,7 +98,7 @@ public class RepeatARQSendChannel {
 				}
 				break;
 			case -2: // Recive an NANK
-				System.out.println("Recived NANK");
+				System.out.println("Recived NANK "+packageNumber);
 				packageNumber = buffer.getInt(4);
 				sendItemFila(packageNumber);
 				break;
